@@ -6,7 +6,16 @@ $(document).ready(function() {
 
   // ----- Sidebar navigation ---------------------//
 
-  function switch_to_page(name) {
+  function show_current_page() {
+    var hash = window.location.hash || $('#mainBody').attr('data-default-page');
+    var name = hash.substring(1);
+
+    // Check if the page already shows
+    var page = $('#' + name);
+    if (page.length > 0 && page.is(':visible')) {
+      return;
+    }
+
     // Hide the original page
     var pages = $('#mainBody > div > div');
     if (pages.length > 0) {
@@ -14,23 +23,27 @@ $(document).ready(function() {
     }
 
     // Switch to the new page.
-    var page = $('#' + name);
     if (page.length > 0) {
-      if (page.is(':hidden')) {
-        page.show(500);
-      }
+      page.show(500);
     } else {
       // Load the new page if not exist.
-      $('#mainBody').append($('<div></div>').load(name + '.html'));
+      $('#mainBody').append($('<div></div>').load(name + '.html', function(response, status, xhr) {
+        if (status == 'error') {
+          $(this).load('not-available.html');
+        }
+      }));
     }
+
+    // Set the active menu item.
+    $('#sidebar li.active').removeClass('active');
+    $('#sidebar a[href="#' + name + '"]').parent().addClass('active');
   }
 
   // Load default page.
-  var hash = window.location.hash || $('#mainBody').attr('data-default-page');
-  switch_to_page(hash.substring(1));
+  show_current_page();
 
   $(window).on('hashchange', function(){
-    switch_to_page(window.location.hash.substring(1));
+    show_current_page();
   });
 
   $('.submenu > a').click(function(e) {

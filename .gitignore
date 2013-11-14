@@ -8,6 +8,7 @@ lib-cov
 *.gz
 *~
 *.komodoproject
+.DS_Store
 /public/themes/less/*.css
 
 pids
