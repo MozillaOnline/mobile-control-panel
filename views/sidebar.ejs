@@ -1,0 +1,51 @@
+<!-- Begin sidebar.ejs -->
+<br>
+<div id="sidebar">
+  <h1 id="logo"><a href="/">Mobile</a></h1>
+  <a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
+  <ul>
+    <li><a href="/"><i class="icon icon-home"></i> <span>Dashboard</span></a></li>
+    <li class="submenu">
+      <a href="#"><i class="icon icon-wrench"></i> <span>Build</span> <span class="label">2</span></a>
+      <ul>
+        <li><a href="#">Locales</a></li>
+        <li><a href="#">Run</a></li>
+      </ul>
+    </li>
+    <li class="submenu">
+      <a href="#"><i class="icon icon-tasks"></i><span>Partner Build</span> <span class="label">2</span></a>
+      <ul>
+        <li><a href="#">Partners</a></li>
+        <li><a href="#">Run</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="console"><i class="icon icon-pencil"></i> <span>Console</span></a>
+    </li>
+    <li>
+      <a href="#"><i class="icon icon-question-sign"></i> <span>Help</span></a>
+    </li>
+  </ul>
+  <script>
+    // Set the active menu item by the page title.
+    (function (title){
+      function normalize(value) {
+        // Converts to lowercase letters and replaces white spaces with '-'
+        return value.trim().toLowerCase().replace(/\s+/g, '-');
+      }
+
+      title = normalize(title);
+
+      // The active menu item has the same title with the page title.
+      // Enumerates menu item, find the active menu and add the 'active' class.
+      var items = $('#sidebar > ul > li');
+      for (var i = 0; i < items.length; i++) {
+        var item = items[i];
+        if (normalize(item.textContent) == title) {
+          $(item).addClass('active');
+        }
+      }
+    })('<%- title %>');
+  </script>
+</div>
+<!-- End sidebar.ejs -->

@@ -8,6 +8,7 @@ lib-cov
 *.gz
 *~
 *.komodoproject
+/public/themes/less/*.css
 
 pids
 logs
