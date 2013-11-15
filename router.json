@@ -1,0 +1,14 @@
+{
+	"/zh-CN": {
+	"template": "homebk"
+	},
+	"/": {
+	"template": "homebk",
+	"data": "home"
+	},
+
+	"/home": {
+	"template": "homebk"
+	}
+
+}

@@ -1,0 +1,525 @@
+html {
+}
+body {
+    background-color: #FFFFFF;
+    border-top: 6px solid #8CC84B;
+    color: #000000;
+    font-family: "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Verdana,Tahoma,sans-serif;
+    font-size: 14px;
+    line-height: 180%;
+    margin: 0;
+    padding: 49px 0 0;
+}
+a {
+    color: #448800;
+    text-decoration: underline;
+}
+a:visited {
+    color: #46483E;
+    text-decoration: underline;
+}
+a:hover, a:focus {
+    text-decoration: none;
+}
+code a:hover {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    color: #B950B7;
+}
+#changelog #gtoc {
+    display: none;
+}
+#gtoc p {
+    font-size: 18px;
+    line-height: 30px;
+    margin: 0;
+}
+#gtoc a {
+    color: #46483E;
+    font-family: Georgia,FreeSerif,Times,serif;
+    text-decoration: none;
+}
+#gtoc a:hover {
+    color: #669900;
+    text-decoration: underline;
+}
+.notice {
+    background: none repeat scroll 0 0 #FFF6BF;
+    border: 1px solid #FFD324;
+    color: #514721;
+    display: block;
+    margin: 1.4667em 0 2.9334em;
+    padding: 1em;
+}
+.notice p {
+    margin: 0;
+}
+.api_stability_0 {
+    border-color: #D60027;
+}
+.api_stability_1 {
+    border-color: #EC5315;
+}
+.api_stability_2 {
+    border-color: #FFD700;
+}
+.api_stability_3 {
+    border-color: #AEC516;
+}
+.api_stability_4 {
+    border-color: #009431;
+}
+.api_stability_5 {
+    border-color: #0084B6;
+}
+ul.plain {
+    list-style: none outside none;
+}
+abbr {
+    border-bottom: 1px dotted #454545;
+}
+p {
+    margin: 0 0 1.4667em;
+    position: relative;
+    text-rendering: optimizelegibility;
+}
+table {
+    border-collapse: collapse;
+    margin: 0 0 1.4667em;
+}
+th, td {
+    border: 1px solid #AAAAAA;
+}
+table p {
+    margin: 0 1ex;
+}
+th {
+    text-align: left;
+}
+.apidoc #apicontent p, .apidoc #apicontent li {
+    color: #000000;
+    font-family: Georgia,FreeSerif,Times,serif;
+    font-size: 15px;
+    line-height: 22px;
+}
+ol, ul, dl {
+    margin: 0 0 1em;
+    padding: 0;
+}
+ol ul, ol ol, ol dl, ul ul, ul ol, ul dl, dl ul, dl ol, dl dl {
+    margin-bottom: 0;
+}
+ol p:first-child, ul p:first-child, dl p:first-child {
+    margin-bottom: 0;
+}
+ul, ol {
+    margin-left: 2em;
+}
+dl dt {
+    margin: 1.5em 0 0;
+    position: relative;
+}
+dl dd {
+    margin: 0 1em;
+    position: relative;
+}
+dd + dt.pre {
+    margin-top: 1.6em;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: #000000;
+    font-family: Helvetica,Arial,sans-serif;
+    position: relative;
+    text-rendering: optimizelegibility;
+}
+header h1 {
+    color: #448800;
+    font-family: Georgia,FreeSerif,Times,serif;
+    font-size: 30px;
+    font-weight: normal;
+    line-height: 36px;
+    margin: 15px 0 11px;
+}
+h1 {
+    font-size: 29px;
+    line-height: 33px;
+    margin: 2em 0 15px;
+}
+#toc + h1 {
+    margin-top: 1em;
+    padding-top: 0;
+}
+h2 {
+    font-size: 1.4em;
+    line-height: 1.0909em;
+    margin: 1.5em 0 0.5em;
+}
+h2 + h2 {
+    margin: 0 0 0.5em;
+}
+h3 {
+    font-size: 1.3em;
+    line-height: 1.1282em;
+    margin: 2.2em 0 0.5em;
+}
+h3 + h3 {
+    margin: 0 0 0.5em;
+}
+h2, h3, h4 {
+    padding-right: 40px;
+    position: relative;
+}
+h1 span, h2 span, h3 span, h4 span {
+    display: block;
+    font-size: 25px;
+    opacity: 0.3;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+h1 span:hover, h2 span:hover, h3 span:hover, h4 span:hover {
+    opacity: 1;
+}
+h1 span a, h2 span a, h3 span a, h4 span a {
+    color: #000000;
+    font-family: Helvetica,Arial,sans-serif;
+    font-size: 0.8em;
+    font-weight: bold;
+    text-decoration: none;
+}
+h1 span a.top, h2 span a.top, h3 span a.top, h4 span a.top {
+    display: none;
+}
+h5 {
+    font-size: 1.125em;
+    line-height: 1.4em;
+}
+h6 {
+    font-size: 1em;
+    line-height: 1.4667em;
+}
+pre, tt, code {
+    font-family: Monaco,Consolas,"Lucida Console",monospace;
+    font-size: 14px;
+    line-height: 1.5438em;
+    margin: 0;
+    padding: 0;
+}
+.pre {
+    font-family: Monaco,Consolas,"Lucida Console",monospace;
+    font-size: 0.95em;
+    line-height: 1.5438em;
+}
+pre {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #F8F8F8;
+    border-color: #E8E8E8;
+    border-image: none;
+    border-style: solid;
+    border-width: 1px 1px 1px 6px;
+    margin: -0.5em 0 1.1em;
+    overflow-x: auto;
+    padding: 1em 1.6em 1em 1.2em;
+    vertical-align: top;
+}
+pre + h3 {
+    margin-top: 2.225em;
+}
+code.pre {
+    white-space: pre;
+}
+#intro {
+    background-image: url("http://nodejs.org/images/platform-icons.png");
+    background-position: -999em -999em;
+    background-repeat: no-repeat;
+    color: #D2D8BA;
+    margin: 0 auto;
+    text-align: center;
+    width: 775px;
+}
+#intro.interior #logo {
+    border: 0 none;
+    margin-left: -298px;
+}
+hr {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border-color: -moz-use-text-color -moz-use-text-color #CCCCCC;
+    border-image: none;
+    border-style: none none solid;
+    border-width: medium medium 1px;
+    margin: 1em 0;
+}
+#toc {
+    font-size: 15px;
+    line-height: 22px;
+    padding-top: 4px;
+}
+#toc h2 {
+    font-size: 15px;
+    line-height: 21px;
+    margin: 0 0 0.5em;
+}
+#toc h2 a {
+    float: right;
+}
+#toc hr {
+    margin: 1em 0 2em;
+}
+#toc ul, #api-section-index #apicontent ul li, #api-section-index #apicontent ul {
+    color: #666666 !important;
+    font-family: Georgia,FreeSerif,Times,serif;
+}
+#toc ul a {
+    border-bottom: 1px dotted #448800;
+    text-decoration: none;
+}
+#toc ul a:hover, #toc ul a:focus {
+    border-bottom: 1px dotted #FFFFFF;
+    color: #000000;
+}
+p tt, p code, span.type {
+    background: none repeat scroll 0 0 #F8F8FF;
+    border: 1px solid #DEDEDE;
+    padding: 0 0.2em;
+}
+#content {
+    clear: both;
+    display: block;
+    margin: 0 auto;
+    overflow: visible;
+    width: 953px;
+}
+#column1.interior {
+    float: right;
+    font-size: 18px;
+    padding-top: 11px;
+    width: 749px;
+	height: 200px;
+	overflow-y: scroll;
+	border: 1px solid;
+}
+#column2.interior {
+    float: left;
+	font-size: 20px;
+    overflow: visible;
+    width: 140px;
+}
+#column2.interior ul {
+    margin-left: 0;
+}
+#column2.interior li {
+    list-style-type: none;
+}
+#column2.interior li a {
+    color: #878B78;
+    display: block;
+    font-size: 15px;
+    line-height: 23px;
+    padding: 0 0 0 35px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+#column2.interior li a.home {
+    background: url("") no-repeat scroll -156px 3px rgba(0, 0, 0, 0);
+}
+#column2.interior li a.download {
+    background: url("") no-repeat scroll -156px -21px rgba(0, 0, 0, 0);
+}
+#column2.interior li a.about {
+    background: url("") no-repeat scroll -156px -45px rgba(0, 0, 0, 0);
+}
+#column2.interior li a.npm {
+    background: url("http://nodejs.org/images/icons-interior.png") no-repeat scroll -156px -69px rgba(0, 0, 0, 0);
+}
+#column2.interior li a.docs {
+    background: url("http://nodejs.org/images/icons-interior.png") no-repeat scroll -156px -93px rgba(0, 0, 0, 0);
+}
+#column2.interior li a.blog {
+    background: url("http://nodejs.org/images/icons-interior.png") no-repeat scroll -156px -117px rgba(0, 0, 0, 0);
+}
+#column2.interior li a.community {
+    background: url("http://nodejs.org/images/icons-interior.png") no-repeat scroll -156px -141px rgba(0, 0, 0, 0);
+}
+#column2.interior li a.logos {
+    background: url("http://nodejs.org/images/icons-interior.png") no-repeat scroll -156px -165px rgba(0, 0, 0, 0);
+}
+#column2.interior li a.jobs {
+    background: url("http://nodejs.org/images/icons-interior.png") no-repeat scroll -156px -189px rgba(0, 0, 0, 0);
+}
+#column2.interior li a.home.current {
+    background-position: 2px 3px;
+}
+#column2.interior li a.download.current {
+    background-position: 2px -21px;
+}
+#column2.interior li a.about.current {
+    background-position: 2px -45px;
+}
+#column2.interior li a.npm.current {
+    background-position: 2px -69px;
+}
+#column2.interior li a.docs.current {
+    background-position: 2px -93px;
+}
+#column2.interior li a.blog.current {
+    background-position: 2px -117px;
+}
+#column2.interior li a.community.current {
+    background-position: 2px -141px;
+}
+#column2.interior li a.logos.current {
+    background-position: 2px -165px;
+}
+#column2.interior li a.jobs.current {
+    background-position: 2px -189px;
+}
+#column2.interior li a.home:hover {
+    background-position: -331px 3px;
+}
+#column2.interior li a.download:hover {
+    background-position: -331px -21px;
+}
+#column2.interior li a.about:hover {
+    background-position: -331px -45px;
+}
+#column2.interior li a.npm:hover {
+    background-position: -331px -69px;
+}
+#column2.interior li a.docs:hover {
+    background-position: -331px -93px;
+}
+#column2.interior li a.blog:hover {
+    background-position: -331px -117px;
+}
+#column2.interior li a.community:hover {
+    background-position: -331px -141px;
+}
+#column2.interior li a.logos:hover {
+    background-position: -331px -165px;
+}
+#column2.interior li a.jobs:hover {
+    background-position: -331px -189px;
+}
+#column2.interior li a.current {
+    color: #8CC84B;
+    font-weight: bold;
+}
+#column2.interior li a:hover {
+    color: #000000;
+    text-decoration: none;
+}
+#column2.interior li + li {
+    border-top: 1px solid #C1C7AC;
+}
+#column2.interior p.twitter {
+    padding-top: 20px;
+}
+#column2.interior p.twitter a {
+    background: url("http://nodejs.org/images/twitter-bird.png") no-repeat scroll 0 4px rgba(0, 0, 0, 0);
+    padding-left: 37px;
+    text-decoration: none;
+}
+#column2.interior p.twitter a:hover {
+    text-decoration: underline;
+}
+a.totop {
+    background: url("http://nodejs.org/images/anchor.png") no-repeat scroll left top rgba(0, 0, 0, 0);
+    border-bottom: 1px solid #CCCCCC;
+    display: block;
+    font-family: "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Verdana,Tahoma,sans-serif;
+    font-weight: bold;
+    margin-right: 7px;
+    text-indent: -1e+7px;
+    width: 13px;
+}
+a.anchor {
+    background: url("http://nodejs.org/images/anchor.png") no-repeat scroll right top rgba(0, 0, 0, 0);
+    border-bottom: 1px solid #CCCCCC;
+    display: block;
+    font-family: "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Verdana,Tahoma,sans-serif;
+    font-weight: bold;
+    text-indent: -1e+7px;
+    width: 13px;
+}
+#footer {
+    margin: 150px auto 55px;
+    padding: 0;
+    width: 942px;
+}
+#footer .joyent-logo {
+    display: block;
+    height: 100px;
+    overflow: hidden;
+    position: absolute;
+    text-indent: -999em;
+    width: 190px;
+    z-index: 999;
+}
+#footer p {
+    color: #666666;
+    font-size: 11px;
+    line-height: 1em;
+    padding: 0 0 0 195px;
+}
+#footer p, #footer li {
+    font-family: "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Verdana,Tahoma,sans-serif;
+}
+#footer a {
+    border: medium none;
+    color: #448800;
+    text-decoration: none;
+}
+#footer a:hover {
+    color: #000000;
+}
+#footer p a {
+    border-bottom: 1px dotted #448800;
+    color: #878B78;
+}
+#footer ul {
+    background: url("http://nodejs.org/images/footer-logo-alt.png") no-repeat scroll left 17px rgba(0, 0, 0, 0);
+    border-top: 1px solid #626557;
+    height: 26px;
+    margin-left: -1px;
+    padding: 23px 0 0 195px;
+}
+#footer ul li {
+    float: left;
+    font-size: 12px;
+    height: 12px;
+    list-style-type: none;
+    margin: 0 !important;
+    padding: 0;
+}
+#footer ul li a {
+    display: block;
+    height: 12px;
+    line-height: 12px;
+    margin: 0;
+    padding: 0 6px 0 0;
+}
+#footer ul li + li {
+    margin-left: 3px;
+}
+#footer ul li + li a {
+    border-left: 1px solid #878B78;
+    padding: 0 6px;
+}
+#footer ul li a.twitter {
+    background: url("http://nodejs.org/images/twitter-bird.png") no-repeat scroll 5px 0 rgba(0, 0, 0, 0);
+    padding-left: 25px;
+}
+.clearfix:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
