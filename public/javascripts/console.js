@@ -22,7 +22,7 @@ function initConsolePage() {
     evt.preventDefault();
   });
 
-  setTimeout(refreshOutput, 500);
+  setInterval(refreshOutput, 500);
 }
 
 setTimeout(initConsolePage, 0);
