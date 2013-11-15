@@ -1,0 +1,13 @@
+<!-- Begin console_output.ejs -->
+<% if (cmd) { %>
+? <%= cmd %>
+----------------------------------
+<%= output || '[No command ouput.]' %>
+<% if (error) { %>
+----------------------------------
+Error: <%- error %>
+  <% } %>
+<% } else { %>
+No output.
+<% } %>
+<!-- End console_output.ejs -->

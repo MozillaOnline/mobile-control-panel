@@ -29,7 +29,7 @@ $(document).ready(function() {
       // Load the new page if not exist.
       $('#mainBody').append($('<div></div>').load(name + '.html', function(response, status, xhr) {
         if (status == 'error') {
-          $(this).load('not-available.html');
+          $(this).load('not_available.html');
         }
       }));
     }

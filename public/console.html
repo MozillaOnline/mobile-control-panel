@@ -12,13 +12,13 @@
         <div class="widget-box">
           <div class="widget-title">
             <h5>Output</h5>
-            <div class="buttons"><a href="#console" class="btn btn-mini"><i class="icon-refresh"></i> Refresh</a></div>
+            <div class="buttons"><a id="console-refresh-btn" href="#console" class="btn btn-mini"><i class="icon-refresh"></i> Refresh</a></div>
           </div>
           <div class="widget-content">
             <pre id="console-output">No output.</pre>
-            <form class="form-horizontal controls">
+            <form id="console-form" class="form-horizontal controls">
               <div class="input-append input-xxlarge">
-                <input type="text" placeholder="Enter shell command..."></input>
+                <input name="cmd" type="text" placeholder="Enter shell command..."></input>
                 <button type="submit" class="btn btn-primary">Run</button>
               </div>
             </form>
@@ -27,5 +27,11 @@
       </div>
     </div>
   </div>
+  <script>
+    if (typeof IsConsoleLoaded == 'undefined') {
+      $.getScript('/javascripts/console.js');
+      IsConsoleLoaded = true;
+    }
+  </script>
 </div>
 
