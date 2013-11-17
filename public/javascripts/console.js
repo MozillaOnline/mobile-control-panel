@@ -22,7 +22,11 @@ function initConsolePage() {
     evt.preventDefault();
   });
 
-  setInterval(refreshOutput, 500);
+  refreshOutput();
+
+  socket.on('cmd_done', function(){
+    refreshOutput();
+  });
 }
 
 setTimeout(initConsolePage, 0);

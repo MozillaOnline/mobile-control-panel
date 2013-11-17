@@ -3,6 +3,7 @@
  */
 
 var exec = require('child_process').exec;
+var server = require('../socket_server');
 
 /**
  * Add a shell command to the task queue.
@@ -54,7 +55,8 @@ var taskQueue = {
         this.output += '\n' + stderr;
       }
       this._childProcess = null;
-      console.log(this.output);
+      // Notify the clients that the command is finished.
+      server.broadcast('cmd_done');
       // Run next task
       if (this._queue.length > 0) {
         this._next();
