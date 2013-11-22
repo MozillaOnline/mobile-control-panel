@@ -10,6 +10,7 @@ lib-cov
 *.komodoproject
 .DS_Store
 /public/themes/less/*.css
+/config.js
 
 pids
 logs

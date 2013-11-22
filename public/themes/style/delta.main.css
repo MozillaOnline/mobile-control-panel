@@ -616,7 +616,7 @@ ul#icons li {
     padding: 10px;
 }
 .recent-posts .article-post, .recent-comments .comments {
-    margin-left: 60px;
+    margin-left: 0;
 }
 .recent-posts li.viewall, .recent-comments li.viewall, .recent-users li.viewall {
 	padding: 0;
@@ -635,16 +635,6 @@ ul#icons li {
     border-bottom: none !important;
 }
 
-.user-thumb {
-    background: none repeat scroll 0 0 #FFFFFF;
-    border: 1px solid #B6BCBF;
-    float: left;
-    height: 40px;
-    margin-right: 10px;
-    margin-top: 5px;
-    padding: 2px;
-    width: 40px;
-}
 .user-info {
     color: #666666;
     font-size: 11px;

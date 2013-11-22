@@ -1,0 +1,10 @@
+#mail {
+  background: url("/themes/images/brushed_alu.png") repeat 0 0;
+  border-radius: 10px;
+  padding: 18px;
+  margin: 10px;
+}
+
+#mail h1 {
+  font-size: 28px;
+}
