@@ -618,21 +618,13 @@ ul#icons li {
 .recent-posts .article-post, .recent-comments .comments {
     margin-left: 0;
 }
-.recent-posts li.viewall, .recent-comments li.viewall, .recent-users li.viewall {
-	padding: 0;
-}
-.recent-posts li.viewall a, .recent-comments li.viewall a, .recent-users li.viewall a {
-	padding: 5px;
-	text-align: center;
-	display: block;
-	color: #888888;
-}
-.recent-posts li.viewall a:hover, .recent-comments li.viewall a:hover, .recent-users li.viewall a:hover {
-	background-color: #eeeeee;
-}
 
 .recent-posts li:last-child, .recent-comments li:last-child, .recent-users li:last-child {
     border-bottom: none !important;
+}
+
+#mail-pagination {
+    margin: 5px;
 }
 
 .user-info {

@@ -14,10 +14,29 @@ exports.getTotalNum = function(req, res){
   });
 };
 
+/*
+ * Get the specified range of the mails.
+ * @param {number} offset The start position to get the mails.
+ * @param {number} count The number of mails to get from the start position.
+ * @return {Array.Mail}. Mail is of the format: {_id: {String}, from: {String},
+ * subject: {String}, date: {Date}}
+ */
+exports.getMails = function(req, res){
+  var offset = req.query.offset || 0;
+  var count = req.query.count || 0;
+  if (count <= 0 || offset < 0) {
+    res.json([]);
+    return;
+  }
+  Mail.getMails(offset, count, function(array) {
+    res.json(array);
+  });
+};
+
 /**
  * Get mail subjects of the last three months.
  * @return {Array.Subject}. Subject is of the format:
- * {id: {String}, subject: {String}, date: {Date}}.
+ * {_id: {String}, subject: {String}, date: {Date}}.
  */
 exports.getLastThreeMonthSubjects = function(req, res){
   Mail.getLastThreeMonthSubjects(function(array) {
@@ -26,7 +45,7 @@ exports.getLastThreeMonthSubjects = function(req, res){
 };
 
 /**
- * Show the mail content.
+ * Show the mail content by message ID.
  */
 exports.mail = function(req, res){
   var emptyMail = {

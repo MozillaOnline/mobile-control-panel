@@ -60,8 +60,11 @@ mailSchema.statics.getTotalNum = function(callback) {
  * pass to the callback function.
  */
 mailSchema.statics.getMails = function(offset, count, callback) {
-  this.find({}, null, { skip: offset, limit: count, lean: true },
-    function(err, mails) {
+  this.find({}, '_id subject date from', {
+    skip: offset,
+    limit: count,
+    lean: true
+  }, function(err, mails) {
     if (err) {
       console.error(err);
       mails = [];
@@ -72,7 +75,7 @@ mailSchema.statics.getMails = function(offset, count, callback) {
 
 /*
  * Get the mail subjests of the last three months.
- * @return callback({Array.{ id: {String}, subject: {String} }, date: {Date}} mails)
+ * @return callback({Array.{ _id: {String}, subject: {String} }, date: {Date}} mails)
  * The mails array will be pass to the callback function. The element of the
  * array contains the mail ID, the subject and the date.
  */

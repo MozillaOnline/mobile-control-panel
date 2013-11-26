@@ -41,6 +41,7 @@ app.get('/', routes.index);
 app.post('/console/run', routes.console.run);
 app.get('/console/refresh', routes.console.refresh);
 app.get('/dashboard/getTotalNum.json', routes.dashboard.getTotalNum);
+app.get('/dashboard/getMails.json', routes.dashboard.getMails);
 app.get('/dashboard/getLastThreeMonthSubjects.json', routes.dashboard.getLastThreeMonthSubjects);
 app.get('/dashboard/mail', routes.dashboard.mail);
 
