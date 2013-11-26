@@ -67,7 +67,9 @@ function processNextMail() {
     return;
   }
   var mail = mailQueue[0];
-  var body = mail.text ? '<pre>' + htmlEncode(mail.text) + '</pre>' : mail.html;
+  // For the plain text mail, mail.html is null and mail.text isn't null;
+  // For the HTML mail, mail.html is not null and mail.text may be null.
+  var body = mail.html ? mail.html : '<pre>' + htmlEncode(mail.text) + '</pre>';
   var dbMail = new db.Mail({
     _id: mail.messageId,
     subject: mail.subject,
