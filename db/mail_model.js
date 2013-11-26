@@ -31,6 +31,7 @@ mailSchema.methods.addOrUpdate = function(callback) {
     upsert: true
   }, function(err, item) {
     if (err) {
+      console.error(err);
       callback(null);
       return;
     }
