@@ -1,6 +1,7 @@
 function initDashboardPage() {
   function refreshAll() {
     refreshCalendar();
+    refreshMailList();
   }
 
   function refreshCalendar() {
@@ -20,6 +21,21 @@ function initDashboardPage() {
     });
   }
 
+  function updateMailNum(callback) {
+
+    $.getJSON('/dashboard/getTotalNum.json', function(data) {
+      var num = data.result;
+      $('#total-mails').attr('title', num + ' total mail(s)').text(num);
+      callback(num);
+    });
+  }
+
+  function refreshMailList() {
+    updateMailNum(function(num) {
+
+    });
+  }
+
   // === Calendar === //
   $('.calendar').fullCalendar({
     editable: false,
@@ -28,21 +44,6 @@ function initDashboardPage() {
       window.open(event.url, 'Mail', 'width=700, height=600, scrollbars=yes');
       return false;
     }
-  });
-
-  $('#console-form').submit(function(evt) {
-    var input = $('input[name="cmd"]');
-    var cmd = input.val().trim();
-    if (cmd) {
-      $.post('/console/run', $(this).serialize()).done(function(data) {
-        input.val('');
-        refreshOutput();
-      }).fail(function() {
-        alert('Failed to run command.');
-      });
-    }
-    input.val(cmd);
-    evt.preventDefault();
   });
 
   refreshAll();
