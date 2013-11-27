@@ -1,15 +1,29 @@
 <!DOCTYPE html>
-<div id="console">
+<div id="not_available">
   <h1>Not Available
   </h1>
   <div id="breadcrumb">
     <a href="/" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Dashboard</a>
-    <a href="#" class="current">Not Available</a>
   </div>
   <div class="container-fluid">
     <div class="hero-unit">
-      <h1>The page is not available now.</h1>
+      <h1 id="not-available-title"></h1>
     </div>
 </div>
 </div>
+<script>
+  (function () {
+    function updateMessage() {
+      var hash = window.location.hash || $('#mainBody').attr('data-default-page');
+      var fileName = hash.substring(1).replace('-', '/', 'g') + '.html'
+      $('#not-available-title').text(fileName + ' is not found!');
+    }
+
+    $(window).on('hashchange', function() {
+      updateMessage();
+    });
+
+    updateMessage();
+  })();
+</script>
 

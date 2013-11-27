@@ -23,21 +23,30 @@ $(document).ready(function() {
     }
 
     // Switch to the new page.
-    if (page.length > 0) {
-      page.show(500);
-    } else {
-      // Load the new page if not exist.
-      $('#mainBody').append($('<div></div>').load(name + '.html', function(response, status, xhr) {
-        if (status == 'error') {
-          $(this).load('not_available.html');
-        }
-      }));
-    }
+    show_page(name);
 
     // Set the active menu item.
     $('#sidebar li.active').removeClass('active');
     $('#sidebar a[href="#' + name + '"]').parent().addClass('active');
   }
+
+  function show_page(name) {
+    // If the page has been loaded, show it.
+    var page = $('#' + name);
+    if (page.length > 0) {
+      page.show(500);
+      return;
+    }
+
+    // If not, load the page before show it.
+    $('#mainBody').append($('<div></div>').load(
+      name.replace('-', '/', 'g') + '.html',
+      function(response, status, xhr) {
+      if (status == 'error' && name != 'not_available') {
+        show_page('not_available');
+      }
+    }));
+  };
 
   // Load default page.
   show_current_page();

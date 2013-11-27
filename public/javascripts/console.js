@@ -29,4 +29,4 @@ function initConsolePage() {
   });
 }
 
-setTimeout(initConsolePage, 0);
+setTimeout(initConsolePage, 100);

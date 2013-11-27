@@ -113,9 +113,6 @@ body {
 	top: -7px;
 }
 
-.container-fluid .row-fluid:first-child {
-	margin-top: 20px;
-}
 /* Breadcrumb */
 #breadcrumb {
 	background-color: #e5e5e5;
@@ -1117,7 +1114,6 @@ div.dataTables_wrapper .ui-widget-header {
 	font-size: 10px;
 	padding: 5px 10px 2px;
 	border-bottom: 0;
-	text-align: center;
 	color: #666666;
 }
 .table.with-check tr th:first-child, .table.with-check tr td:first-child {
@@ -1435,4 +1431,20 @@ form {
 	.dataTables_filter, .dataTables_paginate {
 		text-align: center;
 	}
+}
+
+#build-repos-list {
+  background: none repeat scroll 0 0 #F9F9F9;
+}
+
+#build-repos-list td{
+  vertical-align: middle;
+}
+
+#build-repos-list ul, #build-repos-list .progress {
+  margin: 0;
+}
+
+#build-repos-list li {
+  font-size: small;
 }

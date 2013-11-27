@@ -1,0 +1,258 @@
+<div id="build-repos">
+  <h1>Repositories
+  </h1>
+  <div id="breadcrumb">
+    <a href="/" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Dashboard</a>
+    <a><i class="icon-wrench"></i> Build</a>
+    <a href="#build-repos" class="current">Repositories</a>
+  </div>
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span12">
+        <table id="build-repos-list" class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>Repo</th>
+              <th>Branch</th>
+              <th>Last updated</th>
+              <th>Behind</th>
+              <th>Status</th>
+              <th>
+              <button id="build-repos-update-all-btn" class="btn btn-mini"><i class="icon-refresh"></i> Update All</button>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="success">
+              <td>mozilla-central</td>
+              <td>
+                <ul class="unstyled">
+                  <li>release</li>
+                  <li>cn_fennec_release</li>
+                </ul>
+              </td>
+              <td>
+                <ul class="unstyled">
+                  <li>Wed Nov 27 2013</li>
+                  <li>Wed Nov 27 2013</li>
+                </ul>
+              </td>
+              <td>0</td>
+              <td><i class="icon-ok"></i> Upadated</td>
+              <td><button class="btn btn-mini">Update</button></td>
+            </tr>
+            <tr class="error">
+              <td>mozilla-central</td>
+              <td>
+                <ul class="unstyled">
+                  <li>beta</li>
+                  <li>cn_fennec_beta</li>
+                </ul>
+              </td>
+              <td>
+                <ul class="unstyled">
+                  <li>Wed Nov 27 2013</li>
+                  <li>Wed Nov 27 2013</li>
+                </ul>
+              </td>
+              <td>0</td>
+              <td><i class="icon-remove"></i> Error</td>
+              <td><button class="btn btn-mini">Update</button></td>
+            </tr>
+            <tr class="warning">
+              <td>mozilla-central</td>
+              <td>
+                <ul class="unstyled">
+                  <li>aurora</li>
+                  <li>cn_fennec_aurora</li>
+                </ul>
+              </td>
+              <td>
+                <ul class="unstyled">
+                  <li>Wed Nov 27 2013</li>
+                  <li>Wed Nov 27 2013</li>
+                </ul>
+              </td>
+              <td>0</td>
+              <td>Out-of-date</td>
+              <td><button class="btn btn-mini">Update</button></td>
+            </tr>
+            <tr class="info">
+              <td>mozilla-central</td>
+              <td>
+                <ul class="unstyled">
+                  <li>master</li>
+                  <li>cn_fennec_master</li>
+                </ul>
+              </td>
+              <td>
+                <ul class="unstyled">
+                  <li>Wed Nov 27 2013</li>
+                  <li>Wed Nov 27 2013</li>
+                </ul>
+              </td>
+              <td>0</td>
+              <td>
+                <div class="progress progress-striped active">
+                  <div class="bar" style="width: 60%"></div>
+                </div>
+              </td>
+              <td><button class="btn btn-mini">Update</button></td>
+            </tr>
+            <tr class="warning">
+              <td>zh-CN</td>
+              <td>
+                <ul class="unstyled">
+                  <li>hg</li>
+                  <li>mozilla-beta</li>
+                </ul>
+              </td>
+              <td>
+                <ul class="unstyled">
+                  <li>Wed Nov 27 2013</li>
+                  <li>Wed Nov 27 2013</li>
+                </ul>
+              </td>
+              <td>0</td>
+              <td>Out-of-date</td>
+              <td><button class="btn btn-mini">Update</button></td>
+            </tr>
+            <tr class="warning">
+              <td>zh-CN</td>
+              <td>
+                <ul class="unstyled">
+                  <li>mozilla-beta</li>
+                  <li>cn-mozilla-beta</li>
+                </ul>
+              </td>
+              <td>
+                <ul class="unstyled">
+                  <li>Wed Nov 27 2013</li>
+                  <li>Wed Nov 27 2013</li>
+                </ul>
+              </td>
+              <td>0</td>
+              <td>Out-of-date</td>
+              <td><button class="btn btn-mini">Update</button></td>
+            </tr>
+            <tr class="warning">
+              <td>zh-CN</td>
+              <td>
+                <ul class="unstyled">
+                  <li>hg</li>
+                  <li>mozilla-release</li>
+                </ul>
+              </td>
+              <td>
+                <ul class="unstyled">
+                  <li>Wed Nov 27 2013</li>
+                  <li>Wed Nov 27 2013</li>
+                </ul>
+              </td>
+              <td>0</td>
+              <td>Out-of-date</td>
+              <td><button class="btn btn-mini">Update</button></td>
+            </tr>
+            <tr class="warning">
+              <td>zh-CN</td>
+              <td>
+                <ul class="unstyled">
+                  <li>mozilla-release</li>
+                  <li>cn-mozilla-release</li>
+                </ul>
+              </td>
+              <td>
+                <ul class="unstyled">
+                  <li>Wed Nov 27 2013</li>
+                  <li>Wed Nov 27 2013</li>
+                </ul>
+              </td>
+              <td>0</td>
+              <td>Out-of-date</td>
+              <td><button class="btn btn-mini">Update</button></td>
+            </tr>
+            <tr class="warning">
+              <td>builtbot-configs</td>
+              <td>
+                <ul class="unstyled">
+                  <li>hg</li>
+                  <li>master</li>
+                </ul>
+              </td>
+              <td>
+                <ul class="unstyled">
+                  <li>Wed Nov 27 2013</li>
+                  <li>Wed Nov 27 2013</li>
+                </ul>
+              </td>
+              <td>0</td>
+              <td>Out-of-date</td>
+              <td><button class="btn btn-mini">Update</button></td>
+            </tr>
+            <tr class="warning">
+              <td>mozharness</td>
+              <td>
+                <ul class="unstyled">
+                  <li>master</li>
+                  <li>cn</li>
+                </ul>
+              </td>
+              <td>
+                <ul class="unstyled">
+                  <li>Wed Nov 27 2013</li>
+                  <li>Wed Nov 27 2013</li>
+                </ul>
+              </td>
+              <td>0</td>
+              <td>Out-of-date</td>
+              <td><button class="btn btn-mini">Update</button></td>
+            </tr>
+            <tr class="warning">
+              <td>build-tools</td>
+              <td>
+                <ul class="unstyled">
+                  <li>master</li>
+                  <li>cn</li>
+                </ul>
+              </td>
+              <td>
+                <ul class="unstyled">
+                  <li>Wed Nov 27 2013</li>
+                  <li>Wed Nov 27 2013</li>
+                </ul>
+              </td>
+              <td>0</td>
+              <td>Out-of-date</td>
+              <td><button class="btn btn-mini">Update</button></td>
+            </tr>
+            <tr class="warning">
+              <td>compare-locales</td>
+              <td>
+                <ul class="unstyled">
+                  <li>hg</li>
+                  <li>master</li>
+                </ul>
+              </td>
+              <td>
+                <ul class="unstyled">
+                  <li>Wed Nov 27 2013</li>
+                  <li>Wed Nov 27 2013</li>
+                </ul>
+              </td>
+              <td>0</td>
+              <td>Out-of-date</td>
+              <td><button class="btn btn-mini">Update</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script>
+    if (typeof IsBuildReposLoaded == 'undefined') {
+      $.getScript('/javascripts/build-repos.js');
+      IsBuildReposLoaded = true;
+    }
+  </script>
+</div>
+

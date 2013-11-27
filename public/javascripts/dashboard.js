@@ -114,7 +114,7 @@ function initDashboardPage() {
   });
   // Hook the the mail link to let user open a new window to read the mail
   // content.
-  $('#mails a').live('click', function(){
+  $('#mails a').on('click', function(){
     window.open(this.href, 'child', 'width=700, height=600, scrollbars=yes');
     return false;
   })
