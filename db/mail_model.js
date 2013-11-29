@@ -97,4 +97,24 @@ mailSchema.statics.getLastThreeMonthSubjects = function(callback) {
   });
 };
 
+/*
+ * Remove mails older than three months.
+ * @return callback({boolean}) The operatation result (true/false) will be pass
+ * to the callback function.
+ */
+mailSchema.statics.removeOldMails = function(callback) {
+  var threeMonthAgo = new Date();
+  threeMonthAgo.setMonth(threeMonthAgo.getMonth() - 3);
+  this.remove({
+    date: {
+      $lt: threeMonthAgo
+    }
+  }, function(err) {
+    if (err) {
+      console.error(err);
+    }
+    callback(!err);
+  });
+};
+
 exports.MailModel = mongoose.model('Mail', mailSchema);

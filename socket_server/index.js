@@ -8,7 +8,7 @@ exports.broadcast = function(message, data) {
   if (clientNum > 0) {
     io.sockets.emit(message, data);
   }
-}
+};
 
 var clientNum = 0;
 

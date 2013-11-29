@@ -3,6 +3,7 @@
  */
 
 var Mail = require('../db').Mail;
+var server = require('../socket_server');
 
 /**
  * Get the total mail number.
@@ -30,6 +31,20 @@ exports.getMails = function(req, res){
   }
   Mail.getMails(offset, count, function(array) {
     res.json(array);
+  });
+};
+
+/*
+ * Clear mails three months before.
+ * @return {result: {boolean}}
+ */
+exports.clearOldMails = function(req, res){
+  Mail.removeOldMails(function(success) {
+    res.json({result: success});
+    if (success) {
+      // Notify the clients to update mail list.
+      server.broadcast('mail');
+    }
   });
 };
 
@@ -69,3 +84,4 @@ exports.mail = function(req, res){
     res.render('mail', mail);
   });
 };
+

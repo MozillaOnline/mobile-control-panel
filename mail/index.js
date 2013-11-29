@@ -55,6 +55,11 @@ mailListener.on("error", function(err) {
 var mailQueue = [];
 
 function handleMail(mail) {
+  // Filter unqualified mails by subject.
+  // The subject should not be empty or contains string "re:".
+  if (!mail.subject || /re:/i.test(mail.subject)) {
+    return;
+  }
   mailQueue.push(mail);
   if (mailQueue.length == 1) {
     processNextMail();

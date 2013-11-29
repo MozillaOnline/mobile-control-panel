@@ -27,6 +27,10 @@ function initConsolePage() {
   socket.on('cmd_done', function(){
     refreshOutput();
   });
+
+  socket.on('connected', function() {
+    refreshOutput();
+  });
 }
 
 setTimeout(initConsolePage, 100);

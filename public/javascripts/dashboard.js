@@ -114,12 +114,25 @@ function initDashboardPage() {
   });
   // Hook the the mail link to let user open a new window to read the mail
   // content.
-  $('#mails a').on('click', function(){
+  $('#mails').on('click', 'a', function() {
     window.open(this.href, 'child', 'width=700, height=600, scrollbars=yes');
     return false;
-  })
+  });
+
+  // Set up the click event handler for "clear old mails" confirmation button
+  $('#clear-old-mails-btn').click(function() {
+    $.getJSON('/dashboard/clearOldMails.json').fail(function() {
+      alert('Failed to proceed the operation.');
+    }).always(function() {
+      $('#clear-old-mails-modal').modal('hide');
+    });
+  });
 
   refreshAll();
+
+  socket.on('connected', function() {
+    refreshAll();
+  });
 
   socket.on('mail', function() {
     refreshAll();
