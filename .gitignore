@@ -11,6 +11,7 @@ lib-cov
 .DS_Store
 /public/themes/less/*.css
 /config.js
+/workspace
 
 pids
 logs

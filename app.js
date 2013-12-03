@@ -7,6 +7,9 @@ var express = require('express');
 var routes = require('./routes/index.js');
 routes.console = require('./routes/console.js');
 routes.dashboard = require('./routes/dashboard.js');
+routes.build = {
+  repos: require('./routes/build_repos.js')
+};
 
 var config = require('./config.js');
 var mail = require('./mail');
@@ -45,6 +48,8 @@ app.get('/dashboard/getMails.json', routes.dashboard.getMails);
 app.get('/dashboard/clearOldMails.json', routes.dashboard.clearOldMails);
 app.get('/dashboard/getLastThreeMonthSubjects.json', routes.dashboard.getLastThreeMonthSubjects);
 app.get('/dashboard/mail', routes.dashboard.mail);
+app.get('/build/repos/getZhCnMirrorStatus.json', routes.build.repos.getZhCnMirrorStatus);
+app.get('/build/repos/startZhCnMirrorTask.json', routes.build.repos.startZhCnMirrorTask);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

@@ -38,7 +38,7 @@
                 </ul>
               </td>
               <td>0</td>
-              <td><i class="icon-ok"></i> Upadated</td>
+              <td><i class="icon-ok"></i> Updated</td>
               <td><button class="btn btn-mini">Update</button></td>
             </tr>
             <tr class="error">
@@ -99,19 +99,28 @@
               </td>
               <td><button class="btn btn-mini">Update</button></td>
             </tr>
-            <tr class="warning">
-              <td>zh-CN</td>
+            <tr id="zh-CN-mirror" class="warning">
+              <td>zh-CN (mirror)</td>
               <td>
                 <ul class="unstyled">
-                  <li>hg</li>
-                  <li>mozilla-beta</li>
+                  <li>beta</li>
+                  <li>release</li>
                 </ul>
               </td>
               <td>
-                <ul class="unstyled">
-                  <li>Wed Nov 27 2013</li>
-                  <li>Wed Nov 27 2013</li>
-                </ul>
+                Wed Nov 27 2013
+              </td>
+              <td>-</td>
+              <td>Out-of-date</td>
+              <td><button class="btn btn-mini">Update</button></td>
+            </tr>
+            <tr class="warning">
+              <td>zh-CN</td>
+              <td>
+                cn-beta
+              </td>
+              <td>
+                Wed Nov 27 2013
               </td>
               <td>0</td>
               <td>Out-of-date</td>
@@ -120,52 +129,10 @@
             <tr class="warning">
               <td>zh-CN</td>
               <td>
-                <ul class="unstyled">
-                  <li>mozilla-beta</li>
-                  <li>cn-mozilla-beta</li>
-                </ul>
+                cn-release
               </td>
               <td>
-                <ul class="unstyled">
-                  <li>Wed Nov 27 2013</li>
-                  <li>Wed Nov 27 2013</li>
-                </ul>
-              </td>
-              <td>0</td>
-              <td>Out-of-date</td>
-              <td><button class="btn btn-mini">Update</button></td>
-            </tr>
-            <tr class="warning">
-              <td>zh-CN</td>
-              <td>
-                <ul class="unstyled">
-                  <li>hg</li>
-                  <li>mozilla-release</li>
-                </ul>
-              </td>
-              <td>
-                <ul class="unstyled">
-                  <li>Wed Nov 27 2013</li>
-                  <li>Wed Nov 27 2013</li>
-                </ul>
-              </td>
-              <td>0</td>
-              <td>Out-of-date</td>
-              <td><button class="btn btn-mini">Update</button></td>
-            </tr>
-            <tr class="warning">
-              <td>zh-CN</td>
-              <td>
-                <ul class="unstyled">
-                  <li>mozilla-release</li>
-                  <li>cn-mozilla-release</li>
-                </ul>
-              </td>
-              <td>
-                <ul class="unstyled">
-                  <li>Wed Nov 27 2013</li>
-                  <li>Wed Nov 27 2013</li>
-                </ul>
+                Wed Nov 27 2013
               </td>
               <td>0</td>
               <td>Out-of-date</td>
@@ -250,7 +217,7 @@
   </div>
   <script>
     if (typeof IsBuildReposLoaded == 'undefined') {
-      $.getScript('/javascripts/build-repos.js');
+      $.getScript('/javascripts/build_repos.js');
       IsBuildReposLoaded = true;
     }
   </script>
