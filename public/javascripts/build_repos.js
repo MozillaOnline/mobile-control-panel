@@ -48,6 +48,8 @@ function initBuildReposPage() {
 
   refreshAll();
 
+  // zh-CN-mirror
+
   $('#zh-CN-mirror button').click(function() {
     if ($(this).hasClass('disabled')) {
       return false;
@@ -55,7 +57,7 @@ function initBuildReposPage() {
     $.getJSON('/build/repos/startZhCnMirrorTask.json', function() {
       updateZhCnMirrorStatus();
     });
-    return true;
+    return false;
   });
 
   socket.on('connected', function() {

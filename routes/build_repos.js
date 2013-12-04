@@ -5,19 +5,18 @@
 var mt = require('../mozharness_task');
 var zhCnMirror = mt.zhCnMirror;
 
+exports.getTask;
 /**
  * Get zh-CN-mirror task status.
  * @return { state: {String},
  *           progress: {Number},
- *           action: {String},
  *           lastUpdated: {Date}
  *         }. The state can be either of
  * 'updated',
  * 'outofdate',
  * 'error',
  * 'running'.
- * If it is in the state of 'running', the progress value is range from 0 to 100,
- * the action field is current running action.
+ * If it is in the state of 'running', the progress value is range from 0 to 100/
  */
 exports.getZhCnMirrorStatus = function(req, res) {
   var lastUpdated = zhCnMirror.getLastUpdated();
@@ -29,7 +28,6 @@ exports.getZhCnMirrorStatus = function(req, res) {
   if (zhCnMirror.isRunning()) {
     result.state = 'running';
     result.progress = zhCnMirror.getProgress();
-    result.action = zhCnMirror.getCurrentAction();
     res.json(result);
     return;
   }

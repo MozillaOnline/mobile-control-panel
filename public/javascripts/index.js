@@ -20,3 +20,19 @@ function format(str) {
     ;
   });
 };
+
+$(document).ready(function() {
+  // Task details wizard
+  $('#task-details-wizard').smartWizard({
+      // Properties
+      keyNavigation: true, // Enable/Disable key navigation(left and right keys are used if enabled)
+      enableAllSteps: true,  // Enable/Disable all steps on first load
+      transitionEffect: 'fade', // Effect on navigation, none/fade/slide/slideleft
+      enableFinishButton: true, // makes finish button enabled always
+      errorSteps:[3],
+      // Events
+      onLeaveStep: null, // triggers when leaving a step
+      onShowStep: null  // triggers when showing a step
+   }
+  );
+});
