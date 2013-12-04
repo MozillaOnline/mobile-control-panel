@@ -17,7 +17,10 @@ var zhCnMirror = new MozharnessTask('zh-CN-mirror',
                                      'update-work-mirror',
                                      'push']);
 
-zhCnMirror.init(function() {
+zhCnMirror.init(checkUpdateResult);
+
+// Check workspace/build/upload/repo_update.json to get the last updated time.
+function checkUpdateResult() {
   var filename = path.resolve(__dirname, '../workspace/build/upload/repo_update.json');
   fs.readFile(filename, function(err, data) {
     if (err) {
@@ -35,14 +38,15 @@ zhCnMirror.init(function() {
     }
     zhCnMirror.emit('state_change');
   });
-});
+}
 
 zhCnMirror.on('state_change', function() {
   server.broadcast('repo_state_change', 'zh-CN-mirror');
 });
 
 zhCnMirror.on('stop', function() {
-  this.init();
+  console.info('zhCnMirror stopped.');
+  checkUpdateResult();
 });
 
 zhCnMirror.getProgress = function() {
