@@ -4,6 +4,7 @@
 
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var db = require('../db');
 
 var mailSchema = new Schema({
   _id: { type: String }, // Message Id
@@ -103,8 +104,23 @@ mailSchema.statics.getLastThreeMonthSubjects = function(callback) {
  * to the callback function.
  */
 mailSchema.statics.removeOldMails = function(callback) {
-  var threeMonthAgo = new Date();
-  threeMonthAgo.setMonth(threeMonthAgo.getMonth() - 3);
+  if (process.env.NODE_ENV !== 'production') {
+    // If the server is running in debug mode, clear all emails.
+    this.remove({}, function(err) {
+      if (err) {
+        console.error(err);
+        callback(false);
+        return;
+      } else {
+        db.set('lastSavedMailDate', '', function(value) {
+          callback(value !== null);
+        });
+      }
+    });
+    return;
+  }
+  var removeFrom = new Date();
+  removeFrom.setMonth(threeMonthAgo.getMonth() - 3);
   this.remove({
     date: {
       $lt: threeMonthAgo

@@ -55,11 +55,23 @@ mailListener.on("error", function(err) {
 var mailQueue = [];
 
 function handleMail(mail) {
+  //
   // Filter unqualified mails by subject.
-  // The subject should not be empty or contains string "re:".
-  if (!mail.subject || /re:/i.test(mail.subject)) {
+  //
+
+  // The subject should not be empty or contains string
+  // "re:",
+  // "android-x86",
+  // "android-armv6".
+  if (!mail.subject || /(android-x86|android-armv6|re:)/i.test(mail.subject)) {
     return;
   }
+
+  // The subject should contains "android" or "fennec".
+  if (!/(android|fennec)/i.test(mail.subject)) {
+    return;
+  }
+
   mailQueue.push(mail);
   if (mailQueue.length == 1) {
     processNextMail();
@@ -122,7 +134,7 @@ function toImapDateString(date) {
 }
 
 function fetchUnsaved() {
-  var sinceDate = db.get('lastSavedMailDate', function(sinceDate) {
+  db.get('lastSavedMailDate', function(sinceDate) {
     sinceDate = sinceDate || new Date(2013, 10, 1);
     var since = toImapDateString(sinceDate);
 
