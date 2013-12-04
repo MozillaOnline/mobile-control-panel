@@ -51,7 +51,6 @@ exports.getZhCnMirrorStatus = function(req, res) {
 };
 
 exports.startZhCnMirrorTask = function(req, res) {
-  console.log('startZhCnMirrorTask', zhCnMirror.isRunning());
   if (!zhCnMirror.isRunning()) {
     zhCnMirror.run();
   }

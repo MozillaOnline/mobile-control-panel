@@ -20,16 +20,20 @@ var zhCnMirror = new MozharnessTask('zh-CN-mirror',
 zhCnMirror.init(function() {
   var filename = path.resolve(__dirname, '../workspace/build/upload/repo_update.json');
   fs.readFile(filename, function(err, data) {
-    if (err || !data) {
+    if (err) {
+      console.error('zhCnMirror.init: failed to read ' + filename);
+      zhCnMirror.emit('state_change');
       return;
     }
     try {
       var json = JSON.parse(data);
-      zhCnMirror._lastUpdated = new Date(json['last_push_timestamp'] * 1000);
-      zhCnMirror.emit('state_change');
+      if (json && json['last_push_timestamp']) {
+        zhCnMirror._lastUpdated = new Date(json['last_push_timestamp'] * 1000);
+      }
     } catch (e) {
-      console.error('zhCnMirror.init:' + e);
+      console.error('zhCnMirror.init: ' + e);
     }
+    zhCnMirror.emit('state_change');
   });
 });
 

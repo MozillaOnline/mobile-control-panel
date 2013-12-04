@@ -38,6 +38,8 @@ MozharnessTask.prototype.run = function() {
     // It is already started.
     return;
   }
+  this._isError = false;
+  this._currentAction = 'prepare';
   var child = spawn('python', [
     this._scriptFile,
     '--config-file',
@@ -51,16 +53,20 @@ MozharnessTask.prototype.run = function() {
     // Can't run the python script.
     if (err.indexOf("python: can't open file") != -1) {
       var data = new Date().toTimeString().substr(0, 8) + '    FATAL - ' + err;
-      var filename = path.resolve(__dirname, '../workspace/logs/' + this.name + '_fatal.log');
+      var dir = path.resolve(__dirname, '../workspace/logs');
+      if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir);
+      }
+      var filename = path.resolve(dir, this.name + '_fatal.log');
       fs.appendFile(filename, data, function(err) {
         if (err) {
-          console.error(err);
+          console.info(err);
         }
       });
       filename = path.resolve(__dirname, '../workspace/logs/' + this.name + '_info.log');
       fs.appendFile(filename, data, function(err) {
         if (err) {
-          console.error(err);
+          console.info(err);
         }
       });
       this._childProcess = null;
@@ -73,6 +79,7 @@ MozharnessTask.prototype.run = function() {
 
     // Search current action. The line to report current action will be like
     // 02:53:08     INFO - ##### Running push step.
+    console.log(err);
     var matches = err.match(/(\S+)\sstep\.\n/);
     if (matches && matches.length >= 2) {
       this._currentAction = matches[1];
@@ -125,7 +132,7 @@ MozharnessTask.prototype._checkCurrentAction = function(callback) {
   exec(cmdline, function(error, stdout, stderr) {
     this._currentAction = 'prepare';
     if (error) {
-      console.log('exec |' + cmdline + '| error: ' + error);
+      console.info('exec |' + cmdline + '| error: ' + error);
       if (callback) {
         callback();
       }
