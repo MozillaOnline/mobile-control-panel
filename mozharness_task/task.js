@@ -40,6 +40,7 @@ MozharnessTask.prototype.run = function() {
   }
   this._isError = false;
   this._currentAction = 'prepare';
+  this.emit('start');
   var child = spawn('python', [
     this._scriptFile,
     '--config-file',
@@ -98,6 +99,10 @@ MozharnessTask.prototype.run = function() {
 MozharnessTask.prototype.isRunning = function() {
   return this._childProcess != null;
 };
+
+MozharnessTask.prototype.getActions = function() {
+  return this.actions;
+}
 
 MozharnessTask.prototype.isError = function() {
   return this._isError;

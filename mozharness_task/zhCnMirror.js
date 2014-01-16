@@ -44,6 +44,10 @@ zhCnMirror.on('state_change', function() {
   server.broadcast('repo_state_change', 'zh-CN-mirror');
 });
 
+zhCnMirror.on('start',function() {
+  server.broadcast('start','prepare;clobber;create-virtualenv;update-stage-mirror;update-work-mirror;push');
+})
+
 zhCnMirror.on('stop', function() {
   console.info('zhCnMirror stopped.');
   checkUpdateResult();

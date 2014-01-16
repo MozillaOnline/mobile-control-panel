@@ -54,6 +54,7 @@ function initBuildReposPage() {
     if ($(this).hasClass('disabled')) {
       return false;
     }
+
     $.getJSON('/build/repos/startZhCnMirrorTask.json', function() {
       updateZhCnMirrorStatus();
     });
@@ -69,6 +70,45 @@ function initBuildReposPage() {
       updateZhCnMirrorStatus();
     }
   });
+
+  socket.on('start', function(data){
+    
+    var stepDescribe = '';
+    var steps = data.split(';');
+    for (var i=0; i< steps.length; i++) {
+      stepDescribe = '<div id="step-' + i + '">';
+      stepDescribe += '<h2 class="StepTitle">Step ' + steps[i] + ' Content</h2>';
+      stepDescribe += '<p></p>';
+      stepDescribe += '</div>';
+      $('.stepContainer').append(stepDescribe);
+    }
+    
+  })
+  
+$('#zh-CN-mirror').click(function(){
+  $.getJSON('/build/repos/getProgressDetail.json', function(data) {
+  //  if ($.isEmptyObject(data) || Object.keys(data).length == 0) {
+  //    alert('Update is not running!');
+  //  } else {
+      var html = '<li><a href="#step-1"><span class="stepNumber">1</span><span class="stepDesc">go</span></a></li>';
+      $('#task-details-wizard #steps-list li').remove();
+      $('#task-details-wizard #steps-list').append(html);
+      $('#task-details-wizard').smartWizard({
+        // Properties
+        contentURL:'public/content',
+        keyNavigation: true, // Enable/Disable key navigation(left and right keys are used if enabled)
+        enableAllSteps: true,  // Enable/Disable all steps on first load
+        transitionEffect: 'fade', // Effect on navigation, none/fade/slide/slideleft
+        enableFinishButton: true, // makes finish button enabled always
+        errorSteps:[3],
+        // Events
+        onLeaveStep: null, // triggers when leaving a step
+        onShowStep: null  // triggers when showing a step
+      });
+   // }
+    });
+  });
+  
 }
 
 setTimeout(initBuildReposPage, 100);
