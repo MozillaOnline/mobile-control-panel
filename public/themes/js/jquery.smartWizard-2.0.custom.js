@@ -17,7 +17,7 @@
     return this.each(function() {
       var obj = $(this);
       var curStepIdx = options.selected;
-      var steps = $("ul > li > a[href^='#step-']", obj); // Get all anchors in this array
+      var steps = $("ul > li > a", obj); // Get all anchors in this array
       var contentWidth = 0;
       var elmStepContainer;
 
@@ -37,7 +37,7 @@
         obj.children('ul').addClass("anchor");
         allDivs.addClass("content");
         // Create Elements
-        elmStepContainer = $('<div></div>').addClass("stepContainer");
+        elmStepContainer = $('<div><iframe class="content"></iframe></div>').addClass("stepContainer");
 
         // highlight steps with errors
         if (options.errorSteps && options.errorSteps.length > 0) {
@@ -89,7 +89,6 @@
         }
 
         $(steps, obj).each(function(i) {
-          $($(this).attr("href"), obj).hide();
           $(this).attr("rel", i + 1);
         });
       }
@@ -108,58 +107,15 @@
             }
           }
         }
-        if (options.updateHeight)
-          elmStepContainer.height($($(selStep, obj).attr("href"), obj).outerHeight());
-        if (options.transitionEffect == 'slide') {
-          $($(curStep, obj).attr("href"), obj).slideUp("fast", function(e) {
-            $($(selStep, obj).attr("href"), obj).slideDown("fast");
-            curStepIdx = stepIdx;
-            SetupStep(curStep, selStep);
-          });
-        } else if (options.transitionEffect == 'fade') {
-          $($(curStep, obj).attr("href"), obj).fadeOut("fast", function(e) {
-            $($(selStep, obj).attr("href"), obj).fadeIn("fast");
-            curStepIdx = stepIdx;
-            SetupStep(curStep, selStep);
-          });
-        } else if (options.transitionEffect == 'slideleft') {
-          var nextElmLeft = 0;
-          var curElementLeft = 0;
-          if (stepIdx > curStepIdx) {
-            nextElmLeft1 = contentWidth + 10;
-            nextElmLeft2 = 0;
-            curElementLeft = 0 - $($(curStep, obj).attr("href"), obj).outerWidth();
-          } else {
-            nextElmLeft1 = 0 - $($(selStep, obj).attr("href"), obj).outerWidth() + 20;
-            nextElmLeft2 = 0;
-            curElementLeft = 10 + $($(curStep, obj).attr("href"), obj).outerWidth();
-          }
-          if (stepIdx == curStepIdx) {
-            nextElmLeft1 = $($(selStep, obj).attr("href"), obj).outerWidth() + 20;
-            nextElmLeft2 = 0;
-            curElementLeft = 0 - $($(curStep, obj).attr("href"), obj).outerWidth();
-          } else {
-            $($(curStep, obj).attr("href"), obj).animate({
-              left: curElementLeft
-            }, "fast", function(e) {
-              $($(curStep, obj).attr("href"), obj).hide();
-            });
-          }
 
-          $($(selStep, obj).attr("href"), obj).css("left", nextElmLeft1);
-          $($(selStep, obj).attr("href"), obj).show();
-          $($(selStep, obj).attr("href"), obj).animate({
-            left: nextElmLeft2
-          }, "fast", function(e) {
-            curStepIdx = stepIdx;
-            SetupStep(curStep, selStep);
-          });
-        } else {
-          $($(curStep, obj).attr("href"), obj).hide();
-          $($(selStep, obj).attr("href"), obj).show();
-          curStepIdx = stepIdx;
-          SetupStep(curStep, selStep);
+        var iframe = $(".stepContainer iframe");
+        if (options.updateHeight) {
+          elmStepContainer.height(iframe.outerHeight());
         }
+
+        iframe.attr("src", $(selStep, obj).attr("href"));
+        curStepIdx = stepIdx;
+        SetupStep(curStep, selStep);
         return true;
       }
 
