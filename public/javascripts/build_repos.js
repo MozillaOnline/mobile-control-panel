@@ -86,7 +86,7 @@ function initBuildReposPage() {
   })
   
 $('#zh-CN-mirror').click(function(){
-  $.getJSON('/build/repos/getProgressDetail.json', function(data) {
+  $.getJSON('/build/repos/getProgressDetail.json',{file:'raw'}, function(data) {
   //  if ($.isEmptyObject(data) || Object.keys(data).length == 0) {
   //    alert('Update is not running!');
   //  } else {
@@ -95,7 +95,7 @@ $('#zh-CN-mirror').click(function(){
       $('#task-details-wizard #steps-list').append(html);
       $('#task-details-wizard').smartWizard({
         // Properties
-        contentURL:'public/content',
+        contentURL:'public/content?file=raw',
         keyNavigation: true, // Enable/Disable key navigation(left and right keys are used if enabled)
         enableAllSteps: true,  // Enable/Disable all steps on first load
         transitionEffect: 'fade', // Effect on navigation, none/fade/slide/slideleft
