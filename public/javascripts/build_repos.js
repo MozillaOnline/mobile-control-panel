@@ -90,7 +90,7 @@ $('#zh-CN-mirror').click(function(){
   //  if ($.isEmptyObject(data) || Object.keys(data).length == 0) {
   //    alert('Update is not running!');
   //  } else {
-      var html = '<li><a href="#command-output?step=step-1"><span class="stepNumber">1</span><span class="stepDesc">go</span></a></li>';
+      var html = '<li><a href="buildInfo?file=raw&step_number=1"><span class="stepNumber">1</span><span class="stepDesc">go</span></a></li>';
       $('#task-details-wizard #steps-list li').remove();
       $('#task-details-wizard #steps-list').append(html);
       $('#task-details-wizard').smartWizard({
