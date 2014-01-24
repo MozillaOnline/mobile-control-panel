@@ -90,8 +90,15 @@ $('#zh-CN-mirror').click(function(){
   //  if ($.isEmptyObject(data) || Object.keys(data).length == 0) {
   //    alert('Update is not running!');
   //  } else {
-      var html = '<li><a href="buildInfo?file=raw&step_number=1"><span class="stepNumber">1</span><span class="stepDesc">go</span></a></li>';
+
+      var html = "";
+      var count = 1;
+      for (key in data.actions) {
+        html += '<li><a href="buildInfo?file=raw&step_number=' + count +'"><span class="stepNumber">' + count + '</span><span class="stepDesc">' + data.actions[key] + '</span></a></li>';
+        count ++;
+      }
       $('#task-details-wizard #steps-list li').remove();
+      $('#task-details-wizard .stepContainer').remove();
       $('#task-details-wizard #steps-list').append(html);
       $('#task-details-wizard').smartWizard({
         // Properties

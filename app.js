@@ -58,6 +58,7 @@ app.get('/build/run/startBuildTask.json', routes.build.run.startBuildTask);
 app.get('/build/repos/getProgressDetail.json', routes.build.repos.getProgressDetail);
 app.get('/public/page',routes.getstep.getPage);
 app.get('/buildInfo',routes.getstep.getStep);
+app.get('/build/repos/getPageNumber.json',routes.getstep.getPageNumber);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

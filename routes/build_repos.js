@@ -61,6 +61,7 @@ exports.startZhCnMirrorTask = function(req, res) {
 };
 
 exports.getProgressDetail = function(req, res) {
+    /*
   var result = {};
   if (zhCnMirror.isRunning()) {
     result.actions = zhCnMirror.getActions();
@@ -68,36 +69,35 @@ exports.getProgressDetail = function(req, res) {
   } else {
     
   }
-  return res.json(result);
-};
-/*
-exports.getLog = function(name) {
+  */
+  name = 'zh-CN-mirror';
+  dataClass = 'raw';
   var result = {};
-  var rawLogFile = path.resolve(__dirname, '../workspace/logs/' + name + '_raw.log');
-    var cmdline = 'grep -E "^#{5}\\s(\\S+\\s){2}step" "' + rawLogFile + '"';
-    exec(cmdline, function(error, stdout, stderr) {
-    this._currentAction = 'prepare';
+  var rawLogFile = path.resolve(__dirname, '../workspace/logs/' + name + '_' + dataClass +'.log');
+  var cmdline = 'grep -E "^#{5}\\s(\\S+\\s){2}step" "' + rawLogFile + '"';
+  var currentAction = 'prepare';
+  var actionsJson = {};
+  var result = {};
+  actionsJson["step0"] = "prepare";
+  exec(cmdline, function(error, stdout, stderr) {
     if (error) {
       console.info('exec |' + cmdline + '| error: ' + error);
       return;
     }
-    // The last line of the stdout will be like:
-    // ##### XXX ACTION_NAME step.
-    
+
     var matches = stdout.match(/(\S+)\sstep\./g);
     for (var i=0; i<matches.length; i++) {
       var curStep = matches[i];
       var parse_result = curStep.match(/(\S+)\sstep\./);
       var stepName = parse_result[1];
-      var stepInfo = {};
-      stepInfo.name = stepName;
-      
+      currentAction = stepName;
+      actionsJson["step"+(i+1)] = stepName;
     }
-    console.log("stdout = " + stdout);
-    console.log(matches);
-    if (matches && matches.length >= 2) {
-      this._currentAction = matches[1];
-    }
-  }.bind(this));
-}
-*/
+
+    result.actions = actionsJson;
+    result.currentAction = currentAction;
+    res.json(result);
+  });
+};
+
+
